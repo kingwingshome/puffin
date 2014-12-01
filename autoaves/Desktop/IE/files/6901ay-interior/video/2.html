@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="../../../libs/jquery/jquery.min.js"></script>
+</head>
+<body style="margin: 0px;" onload="init()">
+<script type="text/javascript">
+    function  init() {
+        setTimeout(function() {
+            initVars();
+        }, 1000);
+    }
+    function initVars(){
+        $("#logo").hide();
+        $("#video").css({visibility:"visible"});
+    }
+</script>
+
+<div id="logo"  align="center" style="margin-top: 170px"><img src="../../assets/autoaves-logo-mini.gif"/></div>
+<video id="video"  controls="controls" width="1280px" height="490px" poster="2.jpg" style="visibility: hidden">
+    <source src="2.webm" type="video/webm">
+    <source src="2.mp4" type="video/mp4">
+</video>
+</body>
+</html>

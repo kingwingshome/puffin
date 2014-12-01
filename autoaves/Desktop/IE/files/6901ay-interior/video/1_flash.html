@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../../../libs/video-js/video-js.min.css" rel="stylesheet" type="text/css">
+    <script src="../../../libs/video-js/video.js"></script>
+    <script type="text/javascript" src="../../../libs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../libs/my/6901ay-exterior.js"></script>
+
+    <script>
+        videojs.options.flash.swf = "../../../libs/video-js/video-js.swf";
+    </script>
+</head>
+<body style="margin: 0px;" onload="init()">
+<script type="text/javascript">
+    function  init() {
+        setTimeout(function() {
+            initVars();
+        }, 1000);
+    }
+    function initVars(){
+        $("#logo").hide();
+        $("#video").css({visibility:"visible"});
+    }
+</script>
+
+<div id="logo"  align="center" style="margin-top: 170px"><img src="../../assets/autoaves-logo-mini.gif"/></div>
+
+<video id="video" class="video-js vjs-default-skin" controls preload="auto" width="1280" height="490"  style="visibility: hidden"
+       poster="1.jpg"
+       data-setup='{"techOrder": ["flash", "html5", "other supported tech"]}'>
+    <source src="1.webm" type="video/webm">
+    <source src="1.mp4" type="video/mp4">
+</video>
+</body>
+</html>
