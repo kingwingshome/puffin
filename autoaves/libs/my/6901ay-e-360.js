@@ -25,9 +25,13 @@ function resize_iframe_360() {
     {
         new_height = 434;
     }
-    else if(new_height <=434 && new_height>368)
+    else if(new_height <=434 && new_height>392)
     {
         new_height = 434;
+    }
+    else if(new_height <=392 && new_height>368)
+    {
+        new_height = 392;
     }
     else if(new_height <=368 && new_height>276)
     {
@@ -37,7 +41,7 @@ function resize_iframe_360() {
     {
         new_height = 276;
     }
-    else
+    else if(new_height <=207 && new_height>184)
     {
         new_height = 207;
     }
