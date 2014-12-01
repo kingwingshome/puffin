@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<title></title>
+	</head>
+	<body style="margin: 0px;" onload="init()">
+		<div id="container" style="width:1280px;height:490px;margin-left: auto;margin-right: auto;">
+            <div align="center" style="margin-top: 170px"><img id="logo" src="../../assets/autoaves-logo-mini.gif"/></div>
+		</div>
+        <script type="text/javascript">
+            function  init() {
+                setTimeout(function() {
+                    initVars();
+                }, 1000);
+            }
+            function initVars(){
+                obj=new object2vrPlayer("container");
+                skin=new object2vrSkin(obj);
+                obj.readConfigUrl("C12_Exterior_360View_out.xml");
+            }
+        </script>
+
+        <script type="text/javascript" src="object2vr_player.js">
+        </script>
+        <script type="text/javascript" src="skin.js">
+        </script>
+	</body>
+</html>
