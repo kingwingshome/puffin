@@ -5,9 +5,10 @@
 		<title></title>
 	</head>
 	<body style="margin: 0px;" onload="init()">
-		<div id="container" style="width:800px;height:306px;margin-left: auto;margin-right: auto;">
-            <div align="center" style="margin-top: 170px"><img id="logo" src="../../../assets/autoaves-logo-mini.gif"/></div>
+		<div id="container" style="width:1136px;height:434px;margin-left: auto;margin-right: auto;">
+            <div id="div-logo" style="margin-top: 30px;margin-left: 30px;"><img id="logo" src="../../../assets/autoaves-logo-mini.gif"/></div>
 		</div>
+
         <script type="text/javascript">
             function  init() {
                 setTimeout(function() {
@@ -15,15 +16,59 @@
                 }, 1000);
             }
             function initVars(){
+                resize_iframe_360();
                 obj=new object2vrPlayer("container");
-				skin=new object2vrSkin(obj);
+                skin=new object2vrSkin(obj);
                 obj.readConfigUrl("out.xml");
+                initEvents();
             }
-        </script>
+            function initEvents() {
+                $(window).resize(function () {
+                    resize_iframe_360();
+                });
+            }
+            function resize_iframe_360() {
+                var panel_360_width = $("body").width();
+                var new_height =   $("#container").height();
+                var new_width =  $("#container").width();
+                if(panel_360_width > 1136 )
+                {
+                    new_height = 434;
+                    new_width = 1136;
+                }
+                else if( panel_360_width <= 1136 && panel_360_width > 960)
+                {
+                    new_height = 434;
+                    new_width = 1136;
+                }
+                else if( panel_360_width <= 960 && panel_360_width > 720)
+                {
+                    new_height = 368;
+                    new_width = 960;
+                }
+                else if( panel_360_width <= 720 && panel_360_width > 540)
+                {
+                    new_height = 276;
+                    new_width = 720;
+                }
+                else
+                {
+                    new_height = 207;
+                    new_width = 540;
+                }
 
+                $("#container").css({
+                    "width" : new_width.toString() +"px",
+                    "height": new_height.toString() + "px"
+                });
+            }
+
+        </script>
+        <script type="text/javascript" src="../../../../libs/jquery/jquery.min.js">
+        </script>
         <script type="text/javascript" src="object2vr_player.js">
-		</script>
-		<script type="text/javascript" src="skin.js">
-		</script>
+        </script>
+        <script type="text/javascript" src="skin.js">
+        </script>
 	</body>
 </html>
