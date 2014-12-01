@@ -1,7 +1,6 @@
 /**
- * Created by admin on 2014/11/21.
+ * Created by keyj on 2014/11/21.
  */
-
 
 function init() {
     initVars();
@@ -9,66 +8,43 @@ function init() {
 }
 
 function initVars() {
-
-}
-
-function cheackIE(){
-    var appName = navigator.appName,
-        userAgent = navigator.userAgent;
-    if(appName == 'Microsoft Internet Explorer'){
-        return true;
-    }
-    else
-    {
-        if (!!window.ActiveXObject || "ActiveXObject" in window)
-            return true;
-        else
-            return false;
-    }
-    return false;
-}
-
-function navigationIE() {
-
-    if (navigator.userAgent.indexOf("MSIE") > 0) {
-        //是否是IE浏览器
-        if (navigator.userAgent.indexOf("MSIE 6.0") > 0) {
-            //6.0
-
-            window.location.href = 'Desktop/IE/index.html';
-            console.log('IE 6.0');
-        }
-        if (navigator.userAgent.indexOf("MSIE 7.0") > 0) {
-            //7.0
-
-            window.location.href = 'Desktop/IE/index.html';
-            console.log('IE 7.0');
-        }
-        if (navigator.userAgent.indexOf("MSIE 8.0") > 0) {
-            //8.0
-
-            window.location.href = 'Desktop/IE/index.html';
-            console.log('IE 8.0');
-        }
-        if (navigator.userAgent.indexOf("MSIE 9.0") > 0) {
-            //9.0
-
-            window.location.href = 'Desktop/IE/index.html';
-            console.log('IE 9.0');
-        }
-        if (navigator.userAgent.indexOf("MSIE 10.0") > 0) {
-            //10.0
-
-            window.location.href = 'Desktop/IE10/index.html';
-            console.log('IE 10.0');
-        }
-    } else {
-        window.location.href = 'Desktop/IE10/index.html';
-    }
+    resize_iframe_360();
 }
 
 function initEvents() {
+    $(window).resize(function () {
+        resize_iframe_360();
+    });
+}
 
+function resize_iframe_360() {
+    var panel_360_width = $("#panel-360").width();
+    var new_height =  panel_360_width * 49/128;
+
+    if(new_height > 434 )
+    {
+        new_height = 434;
+    }
+    else if(new_height <=434 && new_height>368)
+    {
+        new_height = 434;
+    }
+    else if(new_height <=368 && new_height>276)
+    {
+        new_height = 368;
+    }
+    else if(new_height <=276 && new_height>207)
+    {
+        new_height = 276;
+    }
+    else
+    {
+        new_height = 207;
+    }
+
+    $("#iframe-360").css({
+        "height": new_height.toString() + "px"
+    });
 }
 
 $(document).ready(init);
